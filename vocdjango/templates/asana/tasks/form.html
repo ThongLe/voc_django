@@ -1,7 +1,7 @@
 {% load staticfiles i18n %}
 {% load widget_tweaks %}
 
-<form role="form" action="{% url 'tasks:index' %}" method="post">
+<form role="form" action="{% url 'asana:tasks:index' %}" method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}
     <div class="row">

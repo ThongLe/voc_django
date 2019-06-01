@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'tasks'
+    'asana'
 ]
 
 MIDDLEWARE = [
@@ -154,5 +154,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 STATICFILES_DIRS = (
     ('auth', os.path.join(BASE_DIR, 'static', 'auth').replace('\\', '/')),
-    ('tasks', os.path.join(BASE_DIR, 'static', 'tasks').replace('\\', '/')),
+    ('asana', os.path.join(BASE_DIR, 'static', 'asana').replace('\\', '/')),
 )

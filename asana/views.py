@@ -11,17 +11,17 @@ from .models import Task
 def list_tasks(request):
     if request.method == 'GET':
         context = {}
-        return render(request, os.path.join('tasks', 'index.html'), context)
+        return render(request, os.path.join('asana', 'tasks', 'index.html'), context)
 
     if request.method == 'POST':
         form = TaskForm(request.POST)
 
         if form.is_valid():
             task = form.save()
-            return redirect('todos:view', task_id=task.id)
+            return redirect('asana:tasks:view', task_id=task.id)
 
         context = {'form': form}
-        return render(request, os.path.join('tasks', 'create.html'), context)
+        return render(request, os.path.join('asana', 'tasks', 'create.html'), context)
 
 
 @login_required
@@ -30,7 +30,7 @@ def create_task(request):
         context = {
             'form': TaskForm()
         }
-        return render(request, os.path.join('tasks', 'create.html'), context)
+        return render(request, os.path.join('asana', 'tasks', 'create.html'), context)
 
 
 @login_required
@@ -39,9 +39,9 @@ def view_task(request, task_id):
         context = {
             'task': get_object_or_404(Task, pk=task_id)
         }
-        return render(request, os.path.join('tasks', 'view.html'), context)
+        return render(request, os.path.join('asana', 'tasks', 'view.html'), context)
 
     if request.method == 'PUT':
         context = {}
-        return render(request, os.path.join('tasks', 'view.html'), context)
+        return render(request, os.path.join('asana', 'tasks', 'view.html'), context)
 

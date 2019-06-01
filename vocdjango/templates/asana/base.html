@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% include "tasks/head.html" %}
+    {% include "asana/head.html" %}
     {% block head %}{% endblock %}
 </head>
 <body>
     {% block body %}
         <div id="wrapper">
             <!-- Navigation -->
-            {% include "tasks/nav.html" %}
+            {% include "asana/nav.html" %}
 
              <div id="page-wrapper">
                  <div class="row">
@@ -26,7 +26,7 @@
              </div>
          </div>
 
-        {% include "tasks/script.html" %}
+        {% include "asana/script.html" %}
         {% block foot %} {% endblock %}
         <script src="{% static 'tasks/dist/js/sb-admin-2.min.js' %}"></script>
     {% endblock %}

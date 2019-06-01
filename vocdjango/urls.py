@@ -33,5 +33,5 @@ urlpatterns = [
         LoginView.as_view(template_name=os.path.join('auth', 'login.html')),
         name="login"),
     url(r'^auth/logout/', LogoutView.as_view(), name="logout"),
-    url(r'^tasks/', include('tasks.urls', namespace='tasks'))
+    url(r'^asana/', include('asana.urls', namespace='asana'))
 ]
