@@ -3,12 +3,33 @@
 
 {% block title %}Demo Project{% endblock %}
 
-{% block head %}{% endblock %}
+{% block head %}
+    <link href="{% static 'asana/vendor/datatables-plugins/dataTables.bootstrap.css' %}" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="{% static 'asana/vendor/datatables-responsive/dataTables.responsive.css' %}" rel="stylesheet">
+
+    <!-- DataTables JavaScript -->
+    <script src="{% static 'asana/vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'asana/vendor/datatables-plugins/dataTables.bootstrap.min.js' %}"></script>
+    <script src="{% static 'asana/vendor/datatables-responsive/dataTables.responsive.js' %}"></script>
+
+    <script type="text/javascript">
+        var tables = {};
+    </script>
+{% endblock %}
 
 {% block title_page %}Tasks{% endblock %}
 
 {% block main %}
+    {% include "asana/tasks/table.html" with table_id="task-table" only %}
 {% endblock main %}
 
 {%block foot %}
+    {% csrf_token %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+        });
+    </script>
 {% endblock%}

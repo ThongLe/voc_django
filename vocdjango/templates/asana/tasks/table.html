@@ -1,0 +1,44 @@
+{% load staticfiles i18n %}
+
+<table width="100%" class="table table-striped table-bordered table-hover" id="{{table_id}}">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Start Time</th>
+            <th>Required Hours</th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+<!-- /.table-responsive -->
+
+{% csrf_token %}
+<script type="text/javascript">
+    tables = tables || {};
+
+    var opts = {
+        columns: [
+            {data: "name"},
+            {data: "start_time"},
+            {data: "required_hours"},
+            {data: "view_url"}
+        ]
+    }
+
+    var ajax_url = "{{ajax_url|default:""}}";
+    if (ajax_url != "") {
+        opts.ajax = {
+            url: ajax_url,
+            contentType: "application/json",
+            headers: { 'X-CSRFToken': jQuery("[name=csrfmiddlewaretoken]").val() },
+            type: "GET"
+        }
+    }
+
+    var data = "{{data|default:""}}";
+    if (data != "") {
+        opts.data = data;
+    }
+
+    tables["{{table_id}}"] = $("#{{table_id}}").DataTable(opts);
+</script>
