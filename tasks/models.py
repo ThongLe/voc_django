@@ -13,5 +13,5 @@ class TimestampModel(models.Model):
 class Task(TimestampModel):
     name = models.CharField(max_length=100, default="")
 
-    start_time = models.DateTimeField(default=timezone.now())
+    start_time = models.DateTimeField(default=timezone.now)
     required_hours = models.PositiveIntegerField(default=1)
