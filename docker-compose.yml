@@ -5,6 +5,8 @@ services:
     image: postgres
     environment:
       POSTGRES_DB: mydatabase
+  cache:
+    image: memcached
   web:
     build: .
     env_file:
@@ -15,3 +17,4 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - cache
