@@ -15,7 +15,7 @@ Including another URLconf
 """
 import os
 from django.contrib import admin
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .views import Index
@@ -33,4 +33,5 @@ urlpatterns = [
         template_name=os.path.join('auth', 'login.html')),
         name="login"),
     url(r'^auth/logout/', LogoutView.as_view, name="logout"),
+    url(r'^todos/', include('todos.urls', namespace='todos'))
 ]
