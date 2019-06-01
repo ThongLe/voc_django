@@ -1,0 +1,32 @@
+{% extends 'todos/base.html' %}
+{% load staticfiles i18n %}
+
+{% block title %}Todos Project{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block title_page %}Create Task{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Task
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    {% include "todos/form.html" %}
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+{% endblock main %}
+
+{%block foot %}
+    {% csrf_token %}
+    <script type="text/javascript">
+    </script>
+{% endblock%}

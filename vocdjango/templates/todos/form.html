@@ -1,0 +1,39 @@
+{% load staticfiles i18n %}
+{% load widget_tweaks %}
+
+<form role="form" action="{% url 'todos:index' %}" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label>Name</label>
+                {% render_field form.name|append_attr:"class=form-control" %}
+                {{form.name.errors}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label>When do you start?</label>
+                {% render_field form.start_time|append_attr:"class=form-control" %}
+                {{form.start_time.errors}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label>How long do you need?</label>
+                {% render_field form.required_hours|append_attr:"class=form-control" %}
+                {{form.required_hours.errors}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <button class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</form>
