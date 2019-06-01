@@ -29,9 +29,9 @@ admin.site.index_title = "Welcome to Todos Administration"
 urlpatterns = [
     url(r'^$', Index.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
-    url(r'^auth/login/', LoginView.as_view(
-        template_name=os.path.join('auth', 'login.html')),
+    url(r'^auth/login/',
+        LoginView.as_view(template_name=os.path.join('auth', 'login.html')),
         name="login"),
-    url(r'^auth/logout/', LogoutView.as_view, name="logout"),
+    url(r'^auth/logout/', LogoutView.as_view(), name="logout"),
     url(r'^todos/', include('todos.urls', namespace='todos'))
 ]
