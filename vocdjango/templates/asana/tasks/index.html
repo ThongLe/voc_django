@@ -22,7 +22,7 @@
 {% block title_page %}Tasks{% endblock %}
 
 {% block main %}
-    {% include "asana/tasks/table.html" with table_id="task-table" only %}
+    {% include "asana/tasks/table.html" with table_id="task-table" ajax_url="/api/asana/tasks/?format=json" only %}
 {% endblock main %}
 
 {%block foot %}

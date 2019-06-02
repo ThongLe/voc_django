@@ -21,7 +21,16 @@
             {data: "name"},
             {data: "start_time"},
             {data: "required_hours"},
-            {data: "view_url"}
+            {data: "url"}
+        ],
+        columnDefs: [
+            {
+                targets: 3,
+                className: 'text-center',
+                render: function ( data, type, row, meta ) {
+                    return `<a href="${data}"><i class="fas fa-info-circle fa-fw"></i></a>`;
+                }
+            }
         ]
     }
 
