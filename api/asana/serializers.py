@@ -5,11 +5,11 @@ from asana.models import Task
 
 
 class TaskUrlHyperlinkedRelatedField(HyperlinkedIdentityField):
-    def __init__(self, view_name=None, **kwargs):
-        assert view_name is not None, 'The `view_name` argument is required.'
-        kwargs['read_only'] = True
-        kwargs['source'] = '*'
-        super(TaskUrlHyperlinkedRelatedField, self).__init__('asana:tasks:view', lookup_url_kwarg='task_id')
+    def __init__(self, **kwargs):
+        super(TaskUrlHyperlinkedRelatedField, self).__init__(
+            'asana:tasks:view',
+            lookup_url_kwarg='task_id'
+        )
 
 
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
