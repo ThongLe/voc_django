@@ -101,6 +101,9 @@ if os.environ.get('DOCKER_IMAGE') == '1':
             'LOCATION': '{}:11211'.format('cache'),
         }
     }
+
+    CELERY_BROKER_URL = 'redis://{}'.format('redis')
+
 else:
     DATABASES = {
         'default': {
@@ -114,6 +117,8 @@ else:
             'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         }
     }
+
+    CELERY_BROKER_URL = 'redis://localhost'
 
 
 # Password validation
